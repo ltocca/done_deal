@@ -23,5 +23,7 @@ urlpatterns = [
     # user added urls
     path('', index, name='index'),
     path('contacts/', contacts, name='contacts'),
+    # path('accounts/', include('accounts.urls')),
+
 ]
 

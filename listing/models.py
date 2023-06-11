@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -18,5 +20,5 @@ class Listing(models.Model):
     description = models.TextField(null=True, blank=True)  # optional field
     price = models.FloatField()
     is_sold = models.BooleanField()
-    # TODO: user
+    seller = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='listings', on_delete=models.CASCADE)
     # TODO: Regione
