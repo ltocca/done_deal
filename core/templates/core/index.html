@@ -3,13 +3,20 @@
 {% block title %}Home {% endblock %}
 
 {% block content %}
-    <h1>TITOLO</h1>
     <div class="container">
-    <div class="px-3 mx-4">
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Find your next deal!" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-    </div>
+        <div class="px-3 mx-4">
+            <h1>Welcome to Done Deal!</h1>
+            <form class="d-flex mx-auto" role="search">
+                <input class="form-control me-2" type="search" placeholder="Find your next deal!" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="container px-3 mx-4 mt-3 bg-secondary rounded" style="--bs-bg-opacity: .1;">
+            <h4>Newest insertions</h4>
+            <div class="row">
+                <div class="col-sm-8">col-sm-8</div>
+                <div class="col-sm-4">col-sm-4</div>
+            </div>
+        </div>
     </div>
 {% endblock %}

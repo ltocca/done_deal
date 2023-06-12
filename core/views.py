@@ -1,8 +1,15 @@
 from django.shortcuts import render
+from listing.models import *
 
 
 def index(request):
-    return render(request, 'core/index.html')
+    listings = Listing.objects.filter(is_sold=False)[0:4]
+    categories = Category.objects.all()
+
+    return render(request, 'core/index.html', {
+        'categories': categories,
+        'listings': listings,
+    })
 
 
 def contacts(request):
