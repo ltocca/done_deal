@@ -1,7 +1,25 @@
 {% extends 'core/base.html' %}
+
+{% block title %}{{ listing.title }} {% endblock %}
+
+{% block content %}
 <div class="container">
-  <div class="row bg-body-tertiary">
-    <div class="col-sm-8">col-sm-8</div>
-    <div class="col-sm-4">col-sm-4</div>
-  </div>
+    <div class="row bg-body-tertiary mt-5 gx-2">
+        <div class="col-sm-8">
+            <div>
+                <img src="{{ listing.image.url }}" alt="listing {{ listing.title }}" class="img-fluid rounded">
+            </div>
+        </div>
+        <div class="col-sm-4 bg-secondary" style="--bs-bg-opacity: .15;">
+            <div class = "m-0">
+                <h2>{{ listing.title }}</h2>
+            <p>Selled by: {{ listing.seller }}</p>
+            <p>Location: {{ listing.location }}</p>
+                <p>Category: {{ listing.category }}</p>
+            </div>
+        </div>
+    </div>
 </div>
+{% endblock %}
+
+{#TODO: add buttons to contact seller, link to seller in selled by, link to location in location (sic)#}

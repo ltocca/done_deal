@@ -11,11 +11,23 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
-        <div class="container px-3 mx-4 mt-3 bg-secondary rounded" style="--bs-bg-opacity: .1;">
-            <h4>Newest insertions</h4>
-            <div class="row">
-                <div class="col-sm-8">col-sm-8</div>
-                <div class="col-sm-4">col-sm-4</div>
+        <div class="container mt-3 bg-secondary rounded" style="--bs-bg-opacity: .1;">
+            <h4 class="pt-3">Newest insertions</h4>
+            <div class="row gx-5">
+                {% for listing in listings %}
+                    <div class=" col-md-4 rounded-top text-dark">
+                    <a href="{% url 'listing:detail' listing.id %}" style="text-decoration: none">
+                        <div>
+                            <img src="{{ listing.image.url }}" alt="listing {{ listing.title }}" class="img-thumbnail">
+                        </div>
+                        <div class="bg-tertiary ">
+                            <h3>{{ listing.title }}</h3>
+                            <p>Location: {{ listing.location }}</p>
+                            <p>Price: €{{ listing.price }}</p>
+                        </div>
+                    </a>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
