@@ -23,7 +23,6 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractUser, PermissionsMixin):
     name = models.CharField(max_length=255)
     surname = models.CharField(max_length=255)
-    bio = models.TextField(blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
     photo = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
     email = models.EmailField(unique=True)
@@ -31,3 +30,5 @@ class CustomUser(AbstractUser, PermissionsMixin):
     REQUIRED_FIELDS = ['name', 'surname', 'date_of_birth', 'email']
 
     objects = CustomUserManager()
+
+# TODO: migrate (removed bio)
