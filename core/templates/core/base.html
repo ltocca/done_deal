@@ -46,7 +46,7 @@
 
         {#TODO: implement login and account features with codeblock #}
         <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2">Login</button>
+            <button type="button" class="btn btn-outline-primary me-2"><a href="{% url 'accounts:login' %}" class="text-reset" style="text-decoration: none">Log-in</a></button>
         <button type="button" class="btn btn-primary"><a href="{% url 'accounts:signup' %}" class="text-reset" style="text-decoration: none">Sign-up</a> </button>
       </div>
     </div>
