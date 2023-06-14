@@ -1,4 +1,4 @@
-# TODO: need to implement SignupForm, LoginForm, EditProfileForm, ChangePasswordForm
+# TODO: need to implement EditProfileForm, ChangePasswordForm
 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
@@ -22,7 +22,7 @@ class SignupForm(UserCreationForm):
         'placeholder': 'Last name'
     }))
 
-    date_of_birth = forms.DateField(widget=forms.DateInput(attrs={
+    date_of_birth = forms.DateField(widget=forms.SelectDateWidget(attrs={
         'placeholder': 'Your birthday'
     }))
 

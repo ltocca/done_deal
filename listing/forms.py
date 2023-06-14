@@ -1,8 +1,9 @@
-# TODO: need toimplement some forms to add a new listing and to edit it
+# TODO: need toimplement some forms to edit a new listing
 
 from django import forms
 from .models import Listing, Category, Region
 from accounts.models import CustomUser as User
+
 
 class NewListingForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -13,13 +14,19 @@ class NewListingForm(forms.ModelForm):
 
     class Meta:
         model = Listing
-        fields = ['artist', 'genre', 'title', 'description', 'collection', 'year', 'photo']
+        fields = ('title', 'description', 'category', 'price', 'location', 'image')
         widgets = {
-            'artist': forms.Select(attrs={'class': 'w-full py-4 px-6 rounded-xl', 'placeholder': 'Artist'}),
-            'genre': forms.Select(attrs={'class': 'w-full py-4 px-6 rounded-xl', 'placeholder': 'Genre'}),
             'title': forms.TextInput(attrs={'class': 'w-full py-4 px-6 rounded-xl', 'placeholder': 'Artwork title'}),
-            'description': forms.Textarea(attrs={'class': 'w-full py-4 px-6 rounded-xl', 'placeholder': 'Artwork description'}),
-            'year': forms.NumberInput(attrs={'class': 'w-full py-4 px-6 rounded-xl', 'placeholder': 'Artwork year'}),
-            'collection': forms.Select(attrs={'class': 'w-full py-4 px-6 rounded-xl', 'placeholder': 'Collection'}),
-            'photo': forms.FileInput(attrs={'class': 'w-full py-4 px-6 rounded-xl', 'placeholder': 'Artwork photo'}),
+            'description': forms.Textarea(
+                attrs={'placeholder': 'Listing description'}),
+            'category': forms.Select(attrs={'placeholder': 'Select category'}),
+            'price': forms.TextInput(attrs={'placeholder': 'Set the listing price'}),
+            'location': forms.Select(attrs={'placeholder': 'Select location'}),
+            'image': forms.FileInput(attrs={'placeholder': 'Select photo'}),
         }
+
+
+class EditListingForm(forms.ModelForm):
+    class Meta:
+        model = Listing
+        fields = ('title', 'description', 'price', 'image', 'is_sold')

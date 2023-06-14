@@ -14,3 +14,6 @@ urlpatterns = [
     path('edit_profile/<int:pk>/', views.edit_profile, name='edit_profile'),
     path('change_password/', views.change_password, name='change_password'),
 ]
+
+
+# TODO: fix myprofile -> scrivere le viste
