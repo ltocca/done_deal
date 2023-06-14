@@ -5,17 +5,19 @@
 {% block content %}
     <div class="container">
         <div class="row bg-body-tertiary mt-5 gx-2">
-            <div class="col-sm-8">
+            <div class="col-sm-8 px-3">
                 <div>
                     <img src="{{ listing.image.url }}" alt="listing {{ listing.title }}" class="img-fluid rounded">
                 </div>
             </div>
-            <div class="col-sm-4 bg-secondary" style="--bs-bg-opacity: .15;">
-                <div class="m-0">
+            <div class="col-sm-4 px-3 rounded bg-secondary" style="--bs-bg-opacity: .15;">
+                <div>
                     <h2>{{ listing.title }}</h2>
                     <p>Sold by: {{ listing.seller }}</p>
                     <p>Location: {{ listing.location }}</p>
                     <p>Category: {{ listing.category }}</p>
+                    <p>Description:</p>
+                    <p>{{ listing.description }}</p>
                     <button type="button" class="btn btn-info">Contact Seller</button>
                 </div>
             </div>
