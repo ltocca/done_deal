@@ -18,7 +18,11 @@
                     <div class=" col-md-4 ">
                     <a href="{% url 'listing:detail' listing.id %}" style="text-decoration: none">
                         <div>
-                            <img src="{{ listing.image.url }}" alt="listing {{ listing.title }}" class="img-thumbnail">
+                           {% if listing.image %}
+                        <img src="{{ listing.image.url }}" alt="listing {{ listing.title }}" class="img-thumbnail rounded">
+                    {% else %}
+                        <p>No photo available!</p>
+                    {% endif %}
                         </div>
                         <div>
                             <h3>{{ listing.title }}</h3>

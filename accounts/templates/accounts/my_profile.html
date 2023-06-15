@@ -3,7 +3,7 @@
 {% block content %}
     <div class="container">
         <div class="px-3 mx-4">
-            <h1>Welcome to your profile</h1>
+            <h1>Welcome to your profile, {{ request.user.name }}</h1>
         </div>
         <div class="container mt-3 bg-secondary rounded" style="--bs-bg-opacity: .1;">
             <h4 class="pt-3">Your insertions</h4>

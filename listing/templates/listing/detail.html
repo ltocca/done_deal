@@ -7,7 +7,11 @@
         <div class="row bg-body-tertiary mt-5 gx-2">
             <div class="col-sm-8 px-3">
                 <div>
-                    <img src="{{ listing.image.url }}" alt="listing {{ listing.title }}" class="img-fluid rounded">
+                    {% if listing.image %}
+                        <img src="{{ listing.image.url }}" alt="listing {{ listing.title }}" class="img-fluid rounded">
+                    {% else %}
+                        <p>No image available!</p>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-sm-4 p-3 rounded bg-secondary" style="--bs-bg-opacity: .15;">

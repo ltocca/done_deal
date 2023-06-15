@@ -16,7 +16,7 @@ class NewListingForm(forms.ModelForm):
         model = Listing
         fields = ('title', 'description', 'category', 'price', 'location', 'image')
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'w-full py-4 px-6 rounded-xl', 'placeholder': 'Artwork title'}),
+            'title': forms.TextInput(attrs={'placeholder': 'Listing title'}),
             'description': forms.Textarea(
                 attrs={'placeholder': 'Listing description'}),
             'category': forms.Select(attrs={'placeholder': 'Select category'}),
