@@ -22,4 +22,15 @@ def logout_view(request):
     logout(request)
     return redirect('/')
 
+
 # TODO: implementare viste
+
+def user_profile(request, pk):
+    if request.user.is_authenticated:
+        user = User.objects.get(pk=pk)
+        my_listings = listing_models.Listing.objects.filter(seller=pk)
+
+        return render(request, 'accounts/my_profile.html',
+                      {'user': user, 'my_listings': my_listings, 'pk': pk})
+    else:
+        return redirect('accounts:login')

@@ -37,7 +37,7 @@ def new_listing(request):
 
 @login_required
 def edit(request, pk):
-    listing = get_object_or_404(Listing, pk=pk, created_by=request.user)
+    listing = get_object_or_404(Listing, pk=pk, seller=request.user)
 
     if request.method == 'POST':
         form = EditListingForm(request.POST, request.FILES, instance=listing)
@@ -57,7 +57,7 @@ def edit(request, pk):
 
 @login_required
 def delete(request, pk):
-    listing = get_object_or_404(Listing, pk=pk, created_by=request.user)
+    listing = get_object_or_404(Listing, pk=pk, seller=request.user)
     listing.delete()
 
     return redirect('dashboard:index')

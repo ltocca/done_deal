@@ -2,18 +2,26 @@
 {% block title %}Your Profile{% endblock %}
 {% block content %}
     <div class="container">
-        <div class="row bg-body-tertiary mt-5 gx-2">
-            <div class="col-sm-8 px-3">
-                <div>
-                    <img src="{{ listing.image.url }}" alt="listing {{ listing.title }}" class="img-fluid rounded">
-                </div>
-            </div>
-            <div class="col-sm-4 px-3 rounded bg-secondary" style="--bs-bg-opacity: .15;">
-                <div>
-                    <h2>Welcome, {{ user.first_name }} {{ user.last_name }}</h2>
-
-                    <button type="submit" class="btn btn-success">Edit Info</button>
-                </div>
+        <div class="px-3 mx-4">
+            <h1>Welcome to your profile</h1>
+        </div>
+        <div class="container mt-3 bg-secondary rounded" style="--bs-bg-opacity: .1;">
+            <h4 class="pt-3">Your insertions</h4>
+            <div class="row gx-5">
+                {% for listing in my_listings %}
+                    <div class=" col-md-4 ">
+                    <a href="{% url 'listing:detail' listing.id %}" style="text-decoration: none">
+                        <div>
+                            <img src="{{ listing.image.url }}" alt="listing {{ listing.title }}" class="img-thumbnail">
+                        </div>
+                        <div>
+                            <h3>{{ listing.title }}</h3>
+                            <p>Location: {{ listing.location }}</p>
+                            <p>Price: €{{ listing.price }}</p>
+                        </div>
+                    </a>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

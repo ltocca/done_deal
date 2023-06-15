@@ -11,8 +11,8 @@ urlpatterns = [
          name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('my_profile/<int:pk>', views.user_profile, name='my_profile'),
-    path('edit_profile/<int:pk>/', views.edit_profile, name='edit_profile'),
-    path('change_password/', views.change_password, name='change_password'),
+    # path('edit_profile/<int:pk>/', views.edit_profile, name='edit_profile'),
+    # path('change_password/', views.change_password, name='change_password'),
 ]
 
 

@@ -10,7 +10,7 @@
                     <img src="{{ listing.image.url }}" alt="listing {{ listing.title }}" class="img-fluid rounded">
                 </div>
             </div>
-            <div class="col-sm-4 px-3 rounded bg-secondary" style="--bs-bg-opacity: .15;">
+            <div class="col-sm-4 p-3 rounded bg-secondary" style="--bs-bg-opacity: .15;">
                 <div>
                     <h2>{{ listing.title }}</h2>
                     <p>Sold by: {{ listing.seller }}</p>
@@ -18,7 +18,14 @@
                     <p>Category: {{ listing.category }}</p>
                     <p>Description:</p>
                     <p>{{ listing.description }}</p>
-                    <button type="button" class="btn btn-info">Contact Seller</button>
+                    {% if listing.seller == request.user %}
+                        <a  href="{% url 'listing:edit' listing.id %}"
+                       class="text-reset" style="text-decoration: none">
+                        <button type="button" class="btn btn-success">Edit</button>
+                        </a>
+                    {% else %}
+                        <button type="button" class="btn btn-info">Contact Seller</button>
+                    {% endif %}
                 </div>
             </div>
         </div>
