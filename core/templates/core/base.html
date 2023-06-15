@@ -14,7 +14,7 @@
 
 
 <body class="d-flex flex-column h-100"> {% comment %}used to stick footer to the botom of the page {% endcomment %}
-<nav class="navbar navbar-expand-lg bg-body-tertiary"> {# TODO: FIX NAVBAR BUTTONS #}
+<nav class="navbar navbar-expand-lg bg-body-primary"> {# TODO: FIX NAVBAR BUTTONS #}
     <div class="container container-fluid ">
         <a class="navbar-brand" href="{% url 'core:index' %}">Done Deal!</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -56,10 +56,11 @@
                                aria-expanded="false">Profile
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{% url 'accounts:edit_profile'  request.user.id %}">Edit Profile</a></li>
-                                <li><a class="dropdown-item" href="{% url 'accounts:change_password' %}">Change Password</a></li>
                                 <li><a class="dropdown-item" href="{% url 'accounts:my_profile'  request.user.id %}">My
                                     Profile</a></li>
+                                <li><a class="dropdown-item" href="{% url 'accounts:edit_profile'  request.user.id %}">Edit Profile</a></li>
+                                <li><a class="dropdown-item" href="{% url 'accounts:change_password' %}">Change Password</a></li>
+
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

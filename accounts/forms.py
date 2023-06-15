@@ -21,7 +21,7 @@ class SignupForm(UserCreationForm):
         'placeholder': 'Last name'
     }))
 
-    date_of_birth = forms.DateField(widget=forms.SelectDateWidget(attrs={
+    date_of_birth = forms.CharField(widget=forms.DateInput(attrs={
         'placeholder': 'Your birthday'
     }))
 
@@ -53,28 +53,16 @@ class EditProfileForm(forms.ModelForm):
         model = CustomUser
         fields = ('username', 'name', 'surname', 'date_of_birth', 'email', 'photo')
 
-    username = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': 'Your username'
-    }))
+    widgets = {
+        # 'photo': forms.FileInput(attrs={'placeholder': 'Select profile pic'}),
+        'username': forms.TextInput(attrs={'placeholder': 'Username'}),
+        'name': forms.TextInput(attrs={ 'placeholder': 'Name'}),
+        'surname': forms.TextInput(attrs={ 'placeholder': 'Surname'}), 'date_of_birth': forms.DateInput(
+            attrs={ 'placeholder': 'Date of birth'}),
+        'email': forms.EmailInput(attrs={'placeholder': 'Email'}),
+        'photo': forms.FileInput(attrs={'placeholder': 'Photo'}), # TODO: fix image not uploading
+    }
 
-    name = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': 'Name'
-    }))
-
-    surname = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': 'Last name'
-    }))
-
-    date_of_birth = forms.DateField(widget=forms.SelectDateWidget(attrs={
-        'placeholder': 'Your birthday'
-    }))
-
-    email = forms.EmailField(widget=forms.EmailInput(attrs={
-        'placeholder': 'Email'
-    }))
-
-    photo = forms.ClearableFileInput(attrs={
-        'placeholder': 'Select profile pic'})
 
 
 class ChangePasswordForm(PasswordChangeForm):

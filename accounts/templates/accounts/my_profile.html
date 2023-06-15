@@ -4,6 +4,10 @@
     <div class="container">
         <div class="px-3 mx-4">
             <h1>Welcome to your profile, {{ request.user.name }}</h1>
+            {% if request.user.photo %}
+                <img src="{{request.user.photo.url}}" class="img-thumbnail rounded-circle w-5" alt="..."
+                  style="width: 180px;">
+            {% endif %}
         </div>
         <div class="container mt-3 bg-secondary rounded" style="--bs-bg-opacity: .1;">
             <h4 class="pt-3">Your insertions</h4>

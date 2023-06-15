@@ -31,4 +31,3 @@ class CustomUser(AbstractUser, PermissionsMixin):
 
     objects = CustomUserManager()
 
-# TODO: migrate (removed bio)

@@ -10,19 +10,21 @@ def detail(request, pk):
     near_listings = Listing.objects.filter(location=listing.location, is_sold=False).exclude(pk=pk)[0:3]
 
     return render(request, 'listing/detail.html', {
-        'listing': listing
+        'listing': listing,
+        'similar_listings': similar_listings,
+        'near_listings': near_listings
     })
 
 
 @login_required()
 def new_listing(request):
-    form = NewListingForm()
     if request.method == 'POST':
         form = NewListingForm(request.POST, request.FILES)
 
         if form.is_valid():
             listing = form.save(commit=False)
-            listing.created_by = request.user
+            listing.seller = request.user
+            listing.image = form.cleaned_data['image']
             listing.save()
 
             return redirect('listing:detail', pk=listing.id)
@@ -43,6 +45,7 @@ def edit(request, pk):
         form = EditListingForm(request.POST, request.FILES, instance=listing)
 
         if form.is_valid():
+            listing.image = form.cleaned_data['image']
             form.save()
 
             return redirect('listing:detail', pk=listing.id)
@@ -56,8 +59,8 @@ def edit(request, pk):
 
 
 @login_required
-def delete(request, pk):
+def delete_listing(request, pk):
     listing = get_object_or_404(Listing, pk=pk, seller=request.user)
     listing.delete()
 
-    return redirect('dashboard:index')
+    return redirect('accounts:my_profile')
