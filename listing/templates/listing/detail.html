@@ -22,7 +22,9 @@
                     <p>Location: {{ listing.location }}</p>
                     <p>Category: {{ listing.category }}</p>
                     <p>Description:</p>
-                    <p>{{ listing.description }}</p>
+                    <div class="container bg-body-tertiary rounded py-1">
+                        <p>{{ listing.description }}</p>
+                    </div>
                     {% if listing.seller == request.user %}
 
                         <div class="d-flex justify-content-center">

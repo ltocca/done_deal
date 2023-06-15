@@ -24,7 +24,7 @@ def new_listing(request):
         if form.is_valid():
             listing = form.save(commit=False)
             listing.seller = request.user
-            listing.image = form.cleaned_data['image']
+            # listing.image = form.cleaned_data['image']
             listing.save()
 
             return redirect('listing:detail', pk=listing.id)
@@ -38,14 +38,13 @@ def new_listing(request):
 
 
 @login_required
-def edit(request, pk):
+def edit_listing(request, pk):
     listing = get_object_or_404(Listing, pk=pk, seller=request.user)
 
     if request.method == 'POST':
         form = EditListingForm(request.POST, request.FILES, instance=listing)
 
         if form.is_valid():
-            listing.image = form.cleaned_data['image']
             form.save()
 
             return redirect('listing:detail', pk=listing.id)
