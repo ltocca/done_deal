@@ -11,6 +11,11 @@ def index(request):
         'listings': listings,
     })
 
+def base(request):
+    categories = Category.objects.all
+    return render(request, 'core/base.html', {
+        'categories': categories,
+    })
 
 def contacts(request):
     return render(request, 'core/contacts.html')

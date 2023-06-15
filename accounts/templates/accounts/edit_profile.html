@@ -9,7 +9,7 @@
                 <div class="col-12 col-sm-8 col-md-6 col-lg-4 offset-sm-2 offset-md-3 offset-lg-4">
                     <div class="container-fluid justify-elements-center">
                         <h2>Edit Profile</h2>
-                        <form class="mb-3" method="post">
+                        <form class="mb-3" method="post" action="." enctype="multipart/form-data">
                             {% csrf_token %}
                             {{form|crispy}}
                             <div class="d-flex justify-content-end">

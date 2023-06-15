@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Listing, Category
 from .forms import NewListingForm, EditListingForm
 
+# def all_listings
+
 
 def detail(request, pk):
     listing = get_object_or_404(Listing, pk=pk)
@@ -62,4 +64,4 @@ def delete_listing(request, pk):
     listing = get_object_or_404(Listing, pk=pk, seller=request.user)
     listing.delete()
 
-    return redirect('accounts:my_profile')
+    return redirect('accounts:my_profile', pk=pk)
