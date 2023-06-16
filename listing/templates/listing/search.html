@@ -5,7 +5,7 @@
 {% block content %}
     <div class="container">
         <div class="px-3 mx-4">
-            <h1>The results for:</h1>
+            <h1>Search our listings</h1>
             <form method="get" action="{% url 'listing:search' %}" class="d-flex mx-auto" >
                 <input name="query" class="form-control me-2" value="{{ query }}" type="text" placeholder="Find your next deal!" aria-label="Search">
                 <button class="btn btn-outline-success">Search</button>
@@ -17,7 +17,7 @@
             <h4 class="pt-3">Filter by category</h4>
                 <ul class="list-group list-unstyled" >
                     {% for category in categories %}
-                            <a class="list-group-item rounded list-group-item-action" href="#"><li>{{ category.name }}</li></a>
+                            <a class="list-group-item rounded list-group-item-action {% if category.id == category_id %} active{% endif %}" href="{% url 'listing:search' %}?query={{ query }}&category={{ category.id }}"><li>{{ category.name }}</li></a>
                         {% endfor %}
                 </ul>
             </div>
@@ -42,6 +42,9 @@
                         </div>
                     </div>
                 {% endfor %}
+            {% if not listings %}
+                <p class="py-3">There are no listings in this category(</p>
+            {% endif %}
             </div></div>
             </div>
         </div>
