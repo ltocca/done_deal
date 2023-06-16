@@ -16,7 +16,7 @@
                     <div class=" col-md-4 ">
                     <a href="{% url 'listing:detail' listing.id %}" style="text-decoration: none">
                         <div>
-                            <img src="{{ listing.image.url }}" alt="listing {{ listing.title }}" class="img-thumbnail">
+                            <img src="{{ listing.image.url }}" alt="listing {{ listing.title }} {% if listing.is_sold %} (SOLD) {% endif %}" class="img-thumbnail">
                         </div>
                         <div>
                             <h3>{{ listing.title }}</h3>

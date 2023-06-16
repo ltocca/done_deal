@@ -24,26 +24,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                {# <li class="nav-item">#}
-                {# <a class="nav-link active" aria-current="page" href="#">Home</a>#}
-                {# </li>#}
-                {% comment %}<li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>{% endcomment %}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                        Categories
+                    <a class="nav-link" href="{% url 'listing:search' %}" aria-expanded="false">
+                        All Items
                     </a>
-                    <ul class="dropdown-menu">
-                        {# <li><a class="dropdown-item" href="#">Categories</a></li>#}
-                        {# <li><a class="dropdown-item" href="#">Another action</a></li>#}
-                        {# <li><a class="dropdown-item" href="#">Something else here</a></li>#}
-                        {#TODO: implement categories with codeblock #}
-                        {% for category in categories %}
-                            <li><a class="dropdown-item" href="#">{{ category.name }}</a></li>
-                        {% endfor %}
-                    </ul>
                 </li>
             </ul>
 

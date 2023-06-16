@@ -23,7 +23,6 @@ def logout_view(request):
     return redirect('/')
 
 
-
 def user_profile(request, pk):
     if request.user.is_authenticated:
         user = User.objects.get(pk=pk)

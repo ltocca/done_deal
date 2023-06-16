@@ -1,10 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'core/base.html' %}
 
-</body>
-</html>
+{% block title %}Results {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="px-3 mx-4">
+            <h1>The results for:</h1>
+            <form class="d-flex mx-auto" role="search">
+                <input class="form-control me-2" type="search" placeholder="Find your next deal!" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="container mt-3 bg-secondary rounded" style="--bs-bg-opacity: .15;">
+            <div class="row">
+                <div class="col-md-2">
+            <h4 class="pt-3">Filter by</h4>
+                <ul>
+                    {% for category in categories %}
+                            <li><a class="dropdown-item" href="#">{{ category.name }}</a></li>
+                        {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-10"><div class="row gx-5">
+                {% for listing in listings %}
+                    <div class=" col-md-4 my-3">
+                        <div class="rounded bg-body-tertiary p-2">
+                            <a href="{% url 'listing:detail' listing.id %}" style="text-decoration: none">
+                        <div>
+                           {% if listing.image %}
+                        <img src="{{ listing.image.url }}" alt="listing {{ listing.title }}" class="img-thumbnail rounded">
+                    {% else %}
+                        <p>No photo available!</p>
+                    {% endif %}
+                        </div>
+                        <div>
+                            <h3>{{ listing.title }}</h3>
+                            <p>Location: {{ listing.location }}</p>
+                            <p>Price: €{{ listing.price }}</p>
+                        </div>
+                    </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
