@@ -15,7 +15,7 @@ def search(request):
         listings = listings.filter(category_id=category_id)
 
     if query:
-        listings = listings.filter(Q(name__icontains=query) | Q(description__icontains=query))
+        listings = listings.filter(Q(title__icontains=query) | Q(description__icontains=query))
 
     return render(request, 'listing/search.html', {
         'listings': listings,
