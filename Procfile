@@ -1,0 +1,1 @@
+web: gunicorn done_deal.wsgi --log-file -
