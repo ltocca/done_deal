@@ -40,6 +40,5 @@ s3transfer==0.6.0
 six==1.16.0
 sqlparse==0.4.4
 typing_extensions==4.6.3
-urllib3==2.0.3
 whitenoise==6.5.0
 yarg==0.1.9
