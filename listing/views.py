@@ -10,12 +10,16 @@ def search(request):
     category_id = request.GET.get('category', 0)
     categories = Category.objects.all()
     listings = Listing.objects.filter(is_sold=False)
+    sort_by = request.GET.get('sort', 'default')
 
     if category_id:
         listings = listings.filter(category_id=category_id)
 
     if query:
         listings = listings.filter(Q(title__icontains=query) | Q(description__icontains=query))
+
+    if sort_by:
+        listings = listings.order_by('price')
 
     return render(request, 'listing/search.html', {
         'listings': listings,
