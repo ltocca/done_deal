@@ -20,7 +20,15 @@
                             <a class="list-group-item rounded list-group-item-action {% if category.id == category_id %} active{% endif %}" href="{% url 'listing:search' %}?query={{ query }}&category={{ category.id }}"><li>{{ category.name }}</li></a>
                         {% endfor %}
                 </ul>
+                <hr>
+                <div>
+                    <p>Clear Filters:</p>
+                     <a href="{% url 'listing:search' %}"><button class="btn btn-danger me-2">Reset</button></a>
+                </div>
             </div>
+
+
+
             <div class="col-md-10"><div class="row gx-5">
                 {% for listing in listings %}
                     <div class=" col-md-4 my-3">
