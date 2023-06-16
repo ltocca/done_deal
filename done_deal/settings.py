@@ -66,7 +66,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CSRF_TRUSTED_ORIGINS = 'https://donedeal.up.railway.app/'
+CSRF_TRUSTED_ORIGINS = ['https://donedeal.up.railway.app/']
 CSRF_COOKIE_DOMAIN = env('CSRF_COOKIE_DOMAIN')
 
 ROOT_URLCONF = "done_deal.urls"
