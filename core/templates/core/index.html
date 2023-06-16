@@ -6,9 +6,10 @@
     <div class="container">
         <div class="px-3 mx-4">
             <h1>Welcome to Done Deal!</h1>
-            <form class="d-flex mx-auto" role="search">
-                <input class="form-control me-2" type="search" placeholder="Find your next deal!" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form method="get" action="{% url 'listing:search' %}" class="d-flex mx-auto">
+                <input name="query" class="form-control me-2" value="{{ query }}" type="text"
+                       placeholder="Find your next deal!" aria-label="Search">
+                <button class="btn btn-outline-success">Search</button>
             </form>
         </div>
         <div class="container mt-3 bg-secondary rounded" style="--bs-bg-opacity: .15;">
@@ -18,7 +19,7 @@
                     <div class=" col-md-4 my-3">
                         <div class="rounded bg-body-tertiary p-2">
                             <a href="{% url 'listing:detail' listing.id %}" style="text-decoration: none">
-                        <div>
+                                <div>
                            {% if listing.image %}
                         <img src="{{ listing.image.url }}" alt="listing {{ listing.title }}" class="img-thumbnail rounded">
                     {% else %}

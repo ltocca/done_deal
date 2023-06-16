@@ -14,7 +14,7 @@
 
 
 <body class="d-flex flex-column h-100"> {% comment %}used to stick footer to the botom of the page {% endcomment %}
-<nav class="navbar navbar-expand-lg bg-body-primary"> {# TODO: FIX NAVBAR BUTTONS #}
+<nav class="navbar navbar-expand-lg bg-body-primary border-bottom">
     <div class="container container-fluid ">
         <a class="navbar-brand" href="{% url 'core:index' %}">Done Deal!</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -31,29 +31,39 @@
                 </li>
             </ul>
 
-            {#TODO: implement login and account features with codeblock #}
             {% if user.is_authenticated %}
-                <div class="col-md-3 text-end d-flex align-items-center justify-content-around">
+                <div class="col-md-3 text-end d-flex align-items-center justify-content-evenly">
+                    <a href="{% url 'inquiry:inbox' %}">
+                        <button class="btn btn-info nav-item">Inbox</button>
+                    </a>
+                    <a href="{% url 'listing:new_listing' %}"
+                       class="text-reset d-flex justify-content-between" style="text-decoration: none">
+                        <button type="button" class="btn btn-success text-nowrap nav-item">New
+                            Listing
+                        </button>
+                    </a>
+                </div>
+                <div>
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                aria-expanded="false">Profile
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{% url 'accounts:my_profile'  request.user.id %}">My
+                                <li class="dropdown-item"><a class="nav-link"
+                                                             href="{% url 'accounts:my_profile'  request.user.id %}"> My
                                     Profile</a></li>
-                                <li><a class="dropdown-item" href="{% url 'accounts:edit_profile'  request.user.id %}">Edit Profile</a></li>
-                                <li><a class="dropdown-item" href="{% url 'accounts:change_password' %}">Change Password</a></li>
+                                <li class="dropdown-item"><a class="nav-link"
+                                                             href="{% url 'accounts:edit_profile'  request.user.id %}">Edit
+                                    Profile</a></li>
+                                <li class="dropdown-item"><a class="nav-link"
+                                                             href="{% url 'accounts:change_password' %}">Change
+                                    Password</a></li>
 
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a href="{% url 'listing:new_listing' %}"
-                                       class="text-reset d-flex justify-content-center" style="text-decoration: none">
-                                    <button type="button" class="btn btn-success">New
-                                        Listing
-                                    </button>
-                                </a></li>
+                                <li></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -65,7 +75,6 @@
                             </ul>
                         </li>
                     </ul>
-
 
 
                 </div>

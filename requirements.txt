@@ -1,32 +1,29 @@
-
-asgiref==3.6.0
-cffi==1.15.1
+asgiref @ file:///opt/conda/conda-bld/asgiref_1661287532135/work
+Babel==2.12.1
+blinker==1.4
+certifi==2023.5.7
+cffi @ file:///croot/cffi_1670423208954/work
 charset-normalizer==3.1.0
 crispy-bootstrap5==0.7
-cryptography==40.0.2
-defusedxml==0.7.1
-dj-database-url==2.0.0
-django~=4.1
-django-allauth==0.54.0
-django-cors-headers==4.0.0
+cryptography @ file:///croot/cryptography_1684947845757/work
+defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
+Django @ file:///opt/conda/conda-bld/django_1661296381686/work
 django-crispy-forms==2.0
-djangorestframework==3.14.0
-environs==9.5.0
-gunicorn==20.1.0
-idna==3.4
-marshmallow==3.19.0
-oauthlib==3.2.2
-packaging==23.1
-pillow~=9.4.0
-psycopg2-binary==2.9.6
-pycparser==2.21
-PyJWT==2.7.0
-python-dotenv==1.0.0
-python3-openid==3.2.0
-pytz==2023.3
-requests==2.30.0
-requests-oauthlib==1.3.1
-sqlparse==0.4.3
-typing_extensions==4.5.0
-urllib3==2.0.2
-whitenoise==6.4.0
+
+docopt==0.6.2
+gunicorn @ file:///home/builder/ci_310/gunicorn_1640790735087/work
+idna @ file:///croot/idna_1666125576474/work
+marshmallow @ file:///croot/marshmallow_1682620721570/work
+oauthlib @ file:///croot/oauthlib_1679489621486/work
+packaging @ file:///croot/packaging_1678965309396/work
+Pillow==9.4.0
+
+
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+PyJWT @ file:///opt/conda/conda-bld/pyjwt_1657544592787/work
+python3-openid @ file:///tmp/build/80754af9/python3-openid_1614366121783/work
+requests==2.31.0
+sqlparse @ file:///croot/sqlparse_1668793487206/work
+typing_extensions @ file:///croot/typing_extensions_1681939499988/work
+urllib3==2.0.3
+yarg==0.1.9

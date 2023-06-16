@@ -1,4 +1,3 @@
-# TODO: need toimplement some forms to edit a new listing
 
 from django import forms
 from .models import Listing, Category, Region
@@ -35,6 +34,3 @@ class EditListingForm(forms.ModelForm):
     class Meta:
         model = Listing
         fields = ('title', 'description', 'price', 'image', 'is_sold')
-
-
-        # TODO: fix no upload image

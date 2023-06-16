@@ -56,11 +56,11 @@ class EditProfileForm(forms.ModelForm):
     widgets = {
         # 'photo': forms.FileInput(attrs={'placeholder': 'Select profile pic'}),
         'username': forms.TextInput(attrs={'placeholder': 'Username'}),
-        'name': forms.TextInput(attrs={ 'placeholder': 'Name'}),
-        'surname': forms.TextInput(attrs={ 'placeholder': 'Surname'}), 'date_of_birth': forms.DateInput(
-            attrs={ 'placeholder': 'Date of birth'}),
+        'name': forms.TextInput(attrs={'placeholder': 'Name'}),
+        'surname': forms.TextInput(attrs={'placeholder': 'Surname'}), 'date_of_birth': forms.DateInput(
+            attrs={'placeholder': 'Date of birth'}),
         'email': forms.EmailInput(attrs={'placeholder': 'Email'}),
-        'photo': forms.FileInput(attrs={'placeholder': 'Photo'}), # TODO: fix image not uploading
+        'photo': forms.FileInput(attrs={'placeholder': 'Photo'}),
     }
 
 

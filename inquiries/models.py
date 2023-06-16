@@ -12,10 +12,11 @@ class Inquiry(models.Model):
 
     class Meta:
         ordering = ('-modified_at',)
+        verbose_name_plural = 'Inquiries'
 
 
 class InquiryMessage(models.Model):
-    approach = models.ForeignKey(Inquiry, related_name='approach', on_delete=models.CASCADE)
+    approach = models.ForeignKey(Inquiry, related_name='messages', on_delete=models.CASCADE)
     msg = models.TextField()
     sent_at = models.DateTimeField(auto_now_add=True)
     sent_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='sender', on_delete=models.CASCADE)

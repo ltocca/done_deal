@@ -28,15 +28,21 @@
                     {% if listing.seller == request.user %}
 
                         <div class="d-flex justify-content-center">
-                            <a  href="{% url 'listing:edit' listing.id %}"
-                                class="text-reset" style="text-decoration: none"><button type="button" class="btn btn-success">Edit</button></a>
+                            <a href="{% url 'listing:edit' listing.id %}"
+                               class="text-reset" style="text-decoration: none">
+                                <button type="button" class="btn btn-success">Edit</button>
+                            </a>
                             <a href="{% url 'listing:delete_listing' listing.id %}"
-                                class="text-reset" style="text-decoration: none"><button type="button" class="btn btn-danger">Delete</button></a>
+                               class="text-reset" style="text-decoration: none">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </a>
                         </div>
 
                     {% else %}
                         <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-info">Contact Seller</button>
+                            <a href="{% url 'inquiry:new_chat' listing.id %}">
+                                <button type="button" class="btn btn-info">Contact Seller</button>
+                            </a>
                         </div>
                     {% endif %}
                 </div>
@@ -44,7 +50,7 @@
         </div>
     </div>
     <div class="container">
-    <div class="container mt-3 bg-secondary rounded" style="--bs-bg-opacity: .1;">
+        <div class="container mt-3 bg-secondary rounded" style="--bs-bg-opacity: .1;">
             <h4 class="pt-3">Similar insertions</h4>
             <div class="row gx-5">
                 {% for listing in similar_listings %}

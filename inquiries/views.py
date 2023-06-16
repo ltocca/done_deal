@@ -21,53 +21,53 @@ def new_chat(request, listing_pk):
 
         if form.is_valid():
             inquiry = Inquiry.objects.create(listing=listing)
-            inquiry.members.add(request.user)
-            inquiry.members.add(listing.seller)
+            inquiry.users.add(request.user)
+            inquiry.users.add(listing.seller)
             inquiry.save()
 
             inquiry_message = form.save(commit=False)
-            inquiry_message.inquiry = inquiry
-            inquiry_message.created_by = request.user
+            inquiry_message.approach = inquiry
+            inquiry_message.sent_by = request.user
             inquiry_message.save()
 
-            return redirect('listing:chat', pk=listing_pk)
+            return redirect('listing:detail', pk=listing_pk)
     else:
         form = InquiryMessageForm()
 
-    return render(request, 'inquiry/new_chat', {
+    return render(request, 'inquiries/new_chat.html', {
         'form': form
     })
 
 
 @login_required
 def inbox(request):
-    inquiries = Inquiry.objects.filter(members__in=[request.user.id])
+    inquiries = Inquiry.objects.filter(users__in=[request.user.id])
 
-    return render(request, 'inquiry/inbox.html', {
+    return render(request, 'inquiries/inbox.html', {
         'inquiries': inquiries
     })
 
 
 @login_required
-def detail(request, pk):
-    inquiry = Inquiry.objects.filter(members__in=[request.user.id]).get(pk=pk)
+def chat(request, pk):
+    inquiry = Inquiry.objects.filter(users__in=[request.user.id]).get(pk=pk)
 
     if request.method == 'POST':
         form = InquiryMessageForm(request.POST)
 
         if form.is_valid():
             inquiry_message = form.save(commit=False)
-            inquiry_message.inquiry = inquiry
-            inquiry_message.created_by = request.user
+            inquiry_message.approach = inquiry
+            inquiry_message.sent_by = request.user
             inquiry_message.save()
 
             inquiry.save()
 
-            return redirect('inquiry:detail', pk=pk)
+            return redirect('inquiry:chat', pk=pk)
     else:
         form = InquiryMessageForm()
 
-    return render(request, 'inquiry/detail.html', {
+    return render(request, 'inquiries/chat.html', {
         'inquiry': inquiry,
         'form': form
     })
